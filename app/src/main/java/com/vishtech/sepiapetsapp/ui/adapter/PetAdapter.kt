@@ -31,7 +31,6 @@ class PetAdapter(private val onClickHandler: OnClickHandler): RecyclerView.Adapt
         holder.tvTitle.text = petList[position].title
         holder.itemView.setOnClickListener {
             onClickHandler.onClick(petList[position].contentUrl)
-            Toast.makeText(it.context, petList[position].contentUrl, Toast.LENGTH_SHORT).show()
         }
         Glide
             .with(holder.itemView.context)
@@ -39,7 +38,6 @@ class PetAdapter(private val onClickHandler: OnClickHandler): RecyclerView.Adapt
             .placeholder(R.drawable.placeholder)
             .into(holder.ivPetIcon)
 
-        //Picasso.with(holder.itemView.context).load(petList[position].imageUrl).into(holder.ivPetIcon)
     }
 
     override fun getItemCount() = petList.size
