@@ -13,7 +13,7 @@ import com.vishtech.sepiapetsapp.R
 import com.vishtech.sepiapetsapp.model.Pet
 import com.vishtech.sepiapetsapp.ui.activities.OnClickHandler
 
-class PetAdapter(val onClickHandler: OnClickHandler): RecyclerView.Adapter<PetAdapter.PetViewHolder>() {
+class PetAdapter(private val onClickHandler: OnClickHandler): RecyclerView.Adapter<PetAdapter.PetViewHolder>() {
 
     var petList: List<Pet> = emptyList()
 

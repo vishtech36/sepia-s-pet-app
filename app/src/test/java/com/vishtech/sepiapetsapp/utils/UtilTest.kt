@@ -8,7 +8,7 @@ internal class UtilTest {
 
     @Test
     fun testWorkingHours() {
-        val pair = Util.isValidWorkingTime("M-F 9:00 - 18:00")
+        val pair = WorkUtil.isValidWorkingTime("M-F 9:00 - 18:00")
         print(pair)
     }
 }

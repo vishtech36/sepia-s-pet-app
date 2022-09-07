@@ -1,19 +1,17 @@
 package com.vishtech.sepiapetsapp.ui.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
 import com.vishtech.sepiapetsapp.R
 import com.vishtech.sepiapetsapp.ui.adapter.PetAdapter
 import com.vishtech.sepiapetsapp.ui.viewmodel.MainActivityViewModel
-import com.vishtech.sepiapetsapp.utils.TimeUtil
-import com.vishtech.sepiapetsapp.utils.Util
+import com.vishtech.sepiapetsapp.utils.WorkUtil
 
 private const val TAG = "MainActivity"
 
@@ -23,13 +21,14 @@ class MainActivity : AppCompatActivity(){
 
     private lateinit var recyclerView: RecyclerView
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val workingHours = viewModel.getWorkTime()
 
-        if(!Util.isValidWorkingTime(workingHours)) {
+        if(!WorkUtil.isValidWorkingTime(workingHours)) {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Sepia's Pet shop is closed")
             builder.setMessage("Please come back on valid work time\n$workingHours")
@@ -39,7 +38,7 @@ class MainActivity : AppCompatActivity(){
             builder.show()
         }
 
-        Log.d(TAG, "onCreate: "+Util.isValidWorkingTime(workingHours))
+        Log.d(TAG, "onCreate: "+WorkUtil.isValidWorkingTime(workingHours))
         Log.d(TAG, "onCreate: "+viewModel.getWorkTime())
         val petAdapter = PetAdapter(object: OnClickHandler{
             override fun onClick(url: String) {
