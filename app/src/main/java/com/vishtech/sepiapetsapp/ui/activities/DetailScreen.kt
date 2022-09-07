@@ -31,4 +31,6 @@ class DetailScreen : AppCompatActivity() {
         // onPageFinished and override Url loading.
         webView.webViewClient = WebViewClient()
     }
+
+
 }
