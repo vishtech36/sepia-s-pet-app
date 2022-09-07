@@ -10,4 +10,8 @@ class Repository(application: Application) {
      fun getPetListData(): PetList {
         return fetchData.getPetList();
     }
+
+    fun getWorkTime(): String {
+        return fetchData.getWorkTime();
+    }
 }

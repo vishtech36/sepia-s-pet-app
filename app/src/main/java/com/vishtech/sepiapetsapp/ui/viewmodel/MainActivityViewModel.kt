@@ -22,4 +22,8 @@ class MainActivityViewModel(application: Application): AndroidViewModel(applicat
     private fun getPetList() = viewModelScope.launch {
         _petList.value = repository.getPetListData()
     }
+
+    fun getWorkTime(): String {
+        return repository.getWorkTime();
+    }
 }

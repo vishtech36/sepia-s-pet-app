@@ -27,17 +27,20 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if(!Util.isValidWorkingTime("M-F 9:00 - 18:00")) {
+        val workingHours = viewModel.getWorkTime()
+
+        if(!Util.isValidWorkingTime(workingHours)) {
             val builder = AlertDialog.Builder(this)
-            builder.setTitle("Pet shop is closed")
-            builder.setMessage("Please come back on valid work time\nM-F 9:00 - 18:00")
+            builder.setTitle("Sepia's Pet shop is closed")
+            builder.setMessage("Please come back on valid work time\n$workingHours")
             builder.setPositiveButton("Ok") { _, _ ->
                 finish()
             }
             builder.show()
         }
 
-        Log.d(TAG, "onCreate: "+Util.isValidWorkingTime("M-F 9:00 - 23:24"))
+        Log.d(TAG, "onCreate: "+Util.isValidWorkingTime(workingHours))
+        Log.d(TAG, "onCreate: "+viewModel.getWorkTime())
         val petAdapter = PetAdapter(object: OnClickHandler{
             override fun onClick(url: String) {
                 val intent = Intent(this@MainActivity, DetailScreen::class.java)
