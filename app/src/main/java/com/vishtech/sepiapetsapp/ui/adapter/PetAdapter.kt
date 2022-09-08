@@ -35,7 +35,7 @@ class PetAdapter(private val onClickHandler: OnClickHandler): RecyclerView.Adapt
         Glide
             .with(holder.itemView.context)
             .load(petList[position].imageUrl)
-            .placeholder(R.drawable.placeholder)
+            .placeholder(R.drawable.ic_baseline_image_24)
             .into(holder.ivPetIcon)
 
     }

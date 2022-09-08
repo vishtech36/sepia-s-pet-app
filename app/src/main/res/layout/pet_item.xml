@@ -20,7 +20,9 @@
             android:layout_width="match_parent"
             android:layout_height="210dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            android:contentDescription="@string/image_of_pet"
+            app:srcCompat="@drawable/ic_baseline_image_24"
+            tools:ignore="IconLocation"/>
 
         <TextView
             android:id="@+id/tvTitle"
@@ -28,6 +30,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             tools:text="Sample name" />
     </LinearLayout>
