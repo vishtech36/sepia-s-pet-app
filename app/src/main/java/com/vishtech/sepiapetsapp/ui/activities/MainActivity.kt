@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(){
         if(!WorkUtil.isValidWorkingTime(workingHours)) {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Sepia's Pet shop is closed")
-            builder.setMessage("Please come back on work hours\n$workingHours")
+            builder.setMessage("Please come back in work hours\n$workingHours")
             builder.setPositiveButton("Ok") { _, _ ->
                 finish()
             }
